@@ -85,18 +85,8 @@
                 <ul class="main-menu menu">
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Makanan</a>
                         <ul class="sub-menu">
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.html">Sumatra</a>
-                                <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.html">Aceh</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.html">Blog Grid 2</a></li>
-                                </ul>
-                          </li>
-                          <li class="menu-item menu-item-has-children dropdown"><a href="blog-grid.html">Jawa</a>
-                                <ul class="sub-menu">
-                                  <li class="menu-item"><a href="blog-grid.html">Aceh</a></li>
-                                  <li class="menu-item"><a href="blog-grid-2.html">Blog Grid 2</a></li>
-                                </ul>
-                          </li>
+                          <li class="menu-item menu-item-has-children"><a href="blog-grid.html">Sumatra</a></li>
+                          <li class="menu-item menu-item-has-children"><a href="blog-grid.html">Jawa</a></li>
                         </ul>
                   </li>
                   <li class="menu-item menu-item-has-children dropdown"><a href="#">Cinderamata</a>
