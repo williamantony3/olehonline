@@ -18,4 +18,5 @@ Route::get('/register', 'Customer@register');
 Route::post('/loginPost', 'Customer@loginPost');
 Route::post('/registerPost', 'Customer@registerPost');
 Route::get('/logout', 'Customer@logout');
-Route::get('/editProfil', 'Customer@editProfil');
+Route::get('/editProfile', 'Customer@editProfile');
+Route::post('/editProfilePost', 'Customer@editProfilePost');

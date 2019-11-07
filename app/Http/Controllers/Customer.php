@@ -60,7 +60,30 @@ class Customer extends Controller
         return redirect('/');
     }
 
-    public function editProfil(Request $request){
-        return view('/editProfil');
+    public function editProfile(){
+        $customer = ModelCustomer::find(Session::get('id'));
+        return view('/editProfile', ['customer'=>$customer]);
+    }
+
+    public function editProfilePost(Request $request){
+
+        $this->validate($request, [
+            'nama' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $data =  ModelCustomer::find(Session::get('id'));
+        $data->Name = $request->nama;
+        $data->Email = $request->email;
+        $data->Username = $request->username;
+        $data->Password = md5($request->password);
+        $data->Address = $request->alamat;
+        $data->Status = 0;
+        $data->save();
+
+        return redirect('/editProfile')->with('alert-success','Data berhasil disimpan');
     }
 }

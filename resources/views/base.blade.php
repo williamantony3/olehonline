@@ -54,7 +54,7 @@
 
                 @else
                   <div class="header__actions"><a href="{{url('logout')}}">Keluar</a></div>
-                  <div class="header__actions"><a href="{{url('editProfil')}}">Ubah Profil</a></div>
+                  <div class="header__actions"><a href="{{url('editProfile')}}">Ubah Profil</a></div>
 
                 @endif
                     <!-- <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
