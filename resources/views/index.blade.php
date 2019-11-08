@@ -48,9 +48,13 @@
                   <div class="ps-shoe__thumbnail"><img src="/assets/images/product/{{$food->ProductImage}}" alt=""><a class="ps-shoe__overlay" href="product-detail.html"></a>
                   </div>
                   <div class="ps-shoe__content">
-                    <div class="ps-shoe__detail"><a class="ps-shoe__name" href="product-detai.html">{{$food->ProductImage}}</a>
+                    <div class="ps-shoe__variants">
+                      <center><button class="ps-btn" style="font-size:14px; width:70%;">Lihat<i class="ps-icon-next"></i></button></center>
+                    </div>
+                    <div class="ps-shoe__detail">
+                      <a class="ps-shoe__name" href="product-detai.html">{{$food->ProductName}}</a>
                       <p class="ps-shoe__categories"><a href="#">Men shoes</a>,<a href="#"> Nike</a>,<a href="#"> Jordan</a></p><span class="ps-shoe__price">
-                        <del>£220</del> £ 120</span>
+                        Rp {{$food->ProductPrice}}</span>
                     </div>
                   </div>
                 </div>
