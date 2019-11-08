@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelCustomer;
+use App\ModelProductType;
 use Illuminate\Support\Facades\Session;
 
 class Customer extends Controller
@@ -30,7 +31,8 @@ class Customer extends Controller
     }
 
     public function register(Request $request){
-        return view('register');
+        $productTypes = ModelProductType::all();
+        return view('register')->with('productTypes', $productTypes);
     }
 
     public function registerPost(Request $request){
@@ -61,8 +63,9 @@ class Customer extends Controller
     }
 
     public function editProfile(){
+        $productTypes = ModelProductType::all();
         $customer = ModelCustomer::find(Session::get('id'));
-        return view('/editProfile', ['customer'=>$customer]);
+        return view('/editProfile', ['customer'=>$customer])->with('productTypes', $productTypes);
     }
 
     public function editProfilePost(Request $request){
