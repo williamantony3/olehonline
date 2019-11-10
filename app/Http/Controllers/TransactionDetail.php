@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ModelCart;
 use App\ModelTransactionDetail;
 use Illuminate\Support\Facades\Session;
+use App\ModelProduct;
 
 class TransactionDetail extends Controller
 {
@@ -18,6 +19,10 @@ class TransactionDetail extends Controller
             $data->ProductId = $cart->ProductId;
             $data->Quantity = $cart->Quantity;
             $data->save();
+
+            $product = ModelProduct::find($cart->ProductId);
+            $product->ProductStock -= $cart->Quantity;
+            $product->save();
             $cart->delete();
         }
 

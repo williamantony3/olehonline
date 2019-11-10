@@ -2,7 +2,7 @@
 @section('content')
 <div class="ps-checkout pt-80 pb-80">
         <div class="ps-container">
-          <form class="ps-checkout__form" action="/transactions/add" method="post">
+          <form class="ps-checkout__form" action="/transactions/add" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="row">
                   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
@@ -14,9 +14,14 @@
                       </div>
                       <div class="form-group form-group--inline">
                         <label>Kurir</label>
-                        <select name="kurir" id="" class="form-control">
+                        <select name="kurir" id="" class="form-control" required="required">
                             <option value="OlehOnline Express">OlehOnline Express</option>
                         </select>
+                      </div><br>
+                      <h3>Unggah Bukti Bayar</h3>
+                      <div class="form-group form-group--inline">
+                        <label>Bukti Bayar</label>
+                        <input type="file" name="bukti" required="required" accept=".jpg">
                       </div>
                     </div>
                   </div>

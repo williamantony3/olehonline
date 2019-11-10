@@ -25,3 +25,4 @@ Route::get('/cart/delete/{id}', 'Cart@delete');
 Route::get('/checkout', 'TransactionHeader@checkout');
 Route::post('/transactions/add', 'TransactionHeader@add');
 Route::get('/transactions/addDetails/{id}', 'TransactionDetail@add');
+Route::get('/transactions/view', 'TransactionHeader@view');

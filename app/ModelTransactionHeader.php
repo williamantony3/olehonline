@@ -8,4 +8,8 @@ class ModelTransactionHeader extends Model
 {
     protected $table = 'transactionheaders';
     public $primaryKey = 'TransactionId';
+
+    public function transactionDetails(){
+        return $this->hasMany('App\ModelTransactionDetail', 'TransactionId', 'TransactionId');
+    }
 }
