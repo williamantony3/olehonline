@@ -22,3 +22,6 @@ Route::get('/product/detail/{id}', 'Product@detail');
 Route::post('/cart/add/{id}', 'Cart@add');
 Route::get('/cart', 'Cart@show');
 Route::get('/cart/delete/{id}', 'Cart@delete');
+Route::get('/checkout', 'TransactionHeader@checkout');
+Route::post('/transactions/add', 'TransactionHeader@add');
+Route::get('/transactions/addDetails/{id}', 'TransactionDetail@add');

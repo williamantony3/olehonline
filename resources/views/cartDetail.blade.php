@@ -48,7 +48,7 @@
               </div>
               @if($carts->count()!=0)
               <div class="ps-cart__total">
-                <h3>Total Bayar: <span> Rp <?php echo $total; ?> </span></h3><a class="ps-btn" href="checkout.html">Bayar<i class="ps-icon-next"></i></a>
+                <h3>Total Bayar: <span> Rp <?php echo $total; ?> </span></h3><a class="ps-btn" href="/checkout">Bayar<i class="ps-icon-next"></i></a>
               </div>
               @endif
             </div>
