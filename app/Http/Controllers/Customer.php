@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ModelCustomer;
 use App\ModelProductType;
 use Illuminate\Support\Facades\Session;
+use App\ModelCart;
 
 class Customer extends Controller
 {
@@ -32,7 +33,8 @@ class Customer extends Controller
 
     public function register(Request $request){
         $productTypes = ModelProductType::all();
-        return view('register')->with('productTypes', $productTypes);
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        return view('register', ['productTypes'=>$productTypes, 'carts'=>$carts]);
     }
 
     public function registerPost(Request $request){
@@ -65,7 +67,8 @@ class Customer extends Controller
     public function editProfile(){
         $productTypes = ModelProductType::all();
         $customer = ModelCustomer::find(Session::get('id'));
-        return view('/editProfile', ['customer'=>$customer])->with('productTypes', $productTypes);
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        return view('/editProfile', ['customer'=>$customer, 'carts'=>$carts])->with('productTypes', $productTypes);
     }
 
     public function editProfilePost(Request $request){

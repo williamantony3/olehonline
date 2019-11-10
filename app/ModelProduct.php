@@ -12,4 +12,8 @@ class ModelProduct extends Model
     public function productType(){
         return $this->belongsTo('App\ModelProductType', 'ProductTypeId', 'ProductTypeId');
     }
+
+    public function province(){
+        return $this->belongsTo('App\ModelProvince', 'ProvinceId', 'ProvinceId');
+    }
 }

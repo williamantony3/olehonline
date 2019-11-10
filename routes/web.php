@@ -18,3 +18,7 @@ Route::post('/registerPost', 'Customer@registerPost');
 Route::get('/logout', 'Customer@logout');
 Route::get('/editProfile', 'Customer@editProfile');
 Route::post('/editProfilePost', 'Customer@editProfilePost');
+Route::get('/product/detail/{id}', 'Product@detail');
+Route::post('/cart/add/{id}', 'Cart@add');
+Route::get('/cart', 'Cart@show');
+Route::get('/cart/delete/{id}', 'Cart@delete');
