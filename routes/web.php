@@ -26,3 +26,8 @@ Route::get('/checkout', 'TransactionHeader@checkout');
 Route::post('/transactions/add', 'TransactionHeader@add');
 Route::get('/transactions/addDetails/{id}', 'TransactionDetail@add');
 Route::get('/transactions/view', 'TransactionHeader@view');
+Route::get('/transactions/confirm/{id}', 'TransactionHeader@confirm');
+Route::get('/transactions/accept/{id}', 'TransactionHeader@accept');
+Route::get('/transactions/deny/{id}', 'TransactionHeader@deny');
+Route::get('/product/type/{id}', 'Product@viewByType');
+Route::get('/product/from/{id}', 'Product@viewByProvince');

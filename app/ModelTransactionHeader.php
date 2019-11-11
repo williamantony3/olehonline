@@ -12,4 +12,8 @@ class ModelTransactionHeader extends Model
     public function transactionDetails(){
         return $this->hasMany('App\ModelTransactionDetail', 'TransactionId', 'TransactionId');
     }
+
+    public function customer(){
+        return $this->belongsTo('App\ModelCustomer', 'CustomerId', 'CustomerId');
+    }
 }
