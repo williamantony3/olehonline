@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2019 at 07:39 AM
+-- Generation Time: Nov 12, 2019 at 03:47 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -21,18 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `olehonline`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `AdminId` int(11) UNSIGNED NOT NULL,
-  `Username` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,7 +88,7 @@ CREATE TABLE `products` (
   `ProductPrice` int(12) UNSIGNED NOT NULL,
   `Description` varchar(500) NOT NULL,
   `ProductStock` int(11) UNSIGNED NOT NULL,
-  `ProductImage` varchar(500) NOT NULL,
+  `ProductImage` varchar(500) DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -110,15 +98,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ProductId`, `ProvinceId`, `CustomerId`, `ProductTypeId`, `ProductName`, `ProductPrice`, `Description`, `ProductStock`, `ProductImage`, `updated_at`, `created_at`) VALUES
-(1, 12, 11, 1, 'Kue Cucur', 1000, 'Kue cucur dijadikan sesajen oleh mereka yang berkeyakinan kaharingan. Namun kini, kue ini bisa dikonsumsi oleh masyarakat secara umum tidak hanya pada waktu ritual. Kue cucur terbuat dari tepung beras, gula pasir dan tambahan bahan lainnya. ', 100, '1.jpg', '2019-11-10 16:10:57', NULL),
-(2, 13, 11, 1, 'Onde-onde Ubi Ungu', 1500, 'Onde-onde ubi ungu merupakan panganan khas Balikpapan yang terbuat dari ubi ungu sebagai isiannya. Sementara luarannya tidak jauh berbeda dengan onde-onde pada umumnya, terbuat dari beras ketan dan taburan wijen.', 92, '2.jpg', '2019-11-10 19:29:16', NULL),
-(3, 5, 11, 1, 'Bir Pletok', 10000, 'Salah satu minuman khas Jakarta yang terkenal hingga ke pelosok Indonesia bahkan mancanegara. Bir pletok sebenarnya merupakan minuman penyegar yang dibuat dengan campuran beberapa jenis rempah, meliputi jahe, daun pandan wangi, dan juga serai.', 99, '3.jpg', '2019-11-10 09:12:54', NULL),
-(4, 21, 11, 1, 'Pie Susu', 35000, 'Banyaknya orang yang memburu jajanan ini membuatnya sulit untuk dicari. Makanan ini sendiri berbentuk bulat dan pipih dan layaknya pie pada umumnya yang berkulit garing daan tengahnya susu, pie ini sangatlah enak.', 98, '4.jpg', '2019-11-11 02:33:23', NULL),
+(1, 12, 11, 1, 'Kue Cucur', 1000, 'Kue cucur dijadikan sesajen oleh mereka yang berkeyakinan kaharingan. Namun kini, kue ini bisa dikonsumsi oleh masyarakat secara umum tidak hanya pada waktu ritual. Kue cucur terbuat dari tepung beras, gula pasir dan tambahan bahan lainnya.', 1001, '1.jpg', '2019-11-12 14:32:58', NULL),
+(2, 13, 11, 1, 'Onde-onde Ubi Ungu', 1500, 'Onde-onde ubi ungu merupakan panganan khas Balikpapan yang terbuat dari ubi ungu sebagai isiannya. Sementara luarannya tidak jauh berbeda dengan onde-onde pada umumnya, terbuat dari beras ketan dan taburan wijen.', 100, '2.jpg', '2019-11-11 07:24:04', NULL),
+(3, 5, 11, 1, 'Bir Pletok', 10000, 'Salah satu minuman khas Jakarta yang terkenal hingga ke pelosok Indonesia bahkan mancanegara. Bir pletok sebenarnya merupakan minuman penyegar yang dibuat dengan campuran beberapa jenis rempah, meliputi jahe, daun pandan wangi, dan juga serai.', 100, '3.jpg', '2019-11-11 07:29:54', NULL),
+(4, 21, 11, 1, 'Pie Susu', 35000, 'Banyaknya orang yang memburu jajanan ini membuatnya sulit untuk dicari. Makanan ini sendiri berbentuk bulat dan pipih dan layaknya pie pada umumnya yang berkulit garing daan tengahnya susu, pie ini sangatlah enak.', 100, '4.jpg', '2019-11-11 07:24:10', NULL),
 (5, 34, 11, 1, 'Bakpia', 3500, 'Makanan yang terbuat dari campuran kacang hijau dengan gula, yang dibungkus dengan tepung, lalu dipanggang', 100, '5.jpg', '2019-11-10 16:10:57', NULL),
 (6, 28, 11, 2, 'Jam Dinding', 150000, 'Kerajinan kayu hitam', 20, '6.jpg', '2019-11-10 16:10:57', NULL),
 (7, 29, 11, 2, 'Kain Tenun', 80000, 'Memiliki ciri khas tersendiri asal Kendari ', 30, '7.jpg', '2019-11-10 16:10:57', NULL),
 (8, 31, 11, 2, 'Mukena', 400000, 'Dibuat dengan seni Kerancang yaitu seni menyulam dari Sumbar dengan membentuk kain halus dengan ciri lubang kecil ', 30, '8.jpg', '2019-11-10 16:10:57', NULL),
-(9, 33, 11, 2, 'Kain Ulos', 1200000, 'Kain Ulos adalah salah satu kain khas Indonesia yang dilestarikan oleh suku Batak, Sumatera Utara. Proses pembuatannya ditenun bukan dengan menggunakan mesin. Kain ini didominasi dengan warna putih, hitam, dan merah yang juga dihiasi dengan benang emas dan perak yang membuat kain ini semakin indah. Kain Ulos biasa digunakan saat upacara Adat Batak sebagai sarung atau selendang, juga bisa digunakan sebagai souvenir.', 30, '9.jpg', '2019-11-10 16:10:57', NULL);
+(9, 33, 11, 2, 'Kain Ulos', 1200000, 'Kain Ulos adalah salah satu kain khas Indonesia yang dilestarikan oleh suku Batak, Sumatera Utara. Proses pembuatannya ditenun bukan dengan menggunakan mesin. Kain ini didominasi dengan warna putih, hitam, dan merah yang juga dihiasi dengan benang emas dan perak yang membuat kain ini semakin indah. Kain Ulos biasa digunakan saat upacara Adat Batak sebagai sarung atau selendang, juga bisa digunakan sebagai souvenir.', 30, '9.jpg', '2019-11-10 16:10:57', NULL),
+(13, 16, 11, 2, 'HeadsetLagi', 1233, 'das', 16, '13.jpg', '2019-11-12 14:40:56', '2019-11-12 14:40:56');
 
 -- --------------------------------------------------------
 
@@ -211,10 +200,7 @@ CREATE TABLE `transactiondetails` (
 --
 
 INSERT INTO `transactiondetails` (`TransactionDetailId`, `TransactionId`, `ProductId`, `Quantity`, `updated_at`, `created_at`) VALUES
-(8, 13, 3, 1, '2019-11-10 09:12:54', '2019-11-10 09:12:54'),
-(9, 14, 2, 4, '2019-11-10 19:29:16', '2019-11-10 19:29:16'),
-(10, 14, 4, 1, '2019-11-10 19:29:16', '2019-11-10 19:29:16'),
-(11, 15, 4, 1, '2019-11-11 02:33:23', '2019-11-11 02:33:23');
+(12, 16, 3, 3, '2019-11-11 07:25:23', '2019-11-11 07:25:23');
 
 -- --------------------------------------------------------
 
@@ -241,20 +227,11 @@ CREATE TABLE `transactionheaders` (
 --
 
 INSERT INTO `transactionheaders` (`TransactionId`, `CustomerId`, `ShippingAddress`, `Status`, `PaidReceipt`, `CourierReceiptNumber`, `CourierOption`, `CourierCost`, `PaymentMethod`, `updated_at`, `created_at`) VALUES
-(13, 10, 'mm', 2, '13.jpg', 'KrJfHS1Zur', 'OlehOnline Express', 10000, 'Transfer Bank', '2019-11-11 06:07:53', '2019-11-10 09:12:54'),
-(14, 10, 'asas', 1, '14.jpg', NULL, 'OlehOnline Express', 10000, 'Transfer Bank', '2019-11-11 06:11:32', '2019-11-10 19:29:16'),
-(15, 12, 'eaw', 1, '15.jpg', NULL, 'OlehOnline Express', 10000, 'Transfer Bank', '2019-11-11 02:33:22', '2019-11-11 02:33:22');
+(16, 10, 'Jl. Sentosa', 0, '16.jpg', NULL, 'OlehOnline Express', 10000, 'Transfer Bank', '2019-11-11 07:29:53', '2019-11-11 07:25:23');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`AdminId`),
-  ADD UNIQUE KEY `Username` (`Username`);
 
 --
 -- Indexes for table `carts`
@@ -303,16 +280,10 @@ ALTER TABLE `transactionheaders`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `AdminId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `CartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `CartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `customers`
@@ -324,7 +295,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ProductId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `producttypes`
@@ -342,13 +313,13 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `transactiondetails`
 --
 ALTER TABLE `transactiondetails`
-  MODIFY `TransactionDetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `TransactionDetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transactionheaders`
 --
 ALTER TABLE `transactionheaders`
-  MODIFY `TransactionId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `TransactionId` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
