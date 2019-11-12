@@ -9,6 +9,7 @@ use App\ModelCart;
 use App\ModelProvince;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\File;
 
 class Product extends Controller
 {
@@ -84,7 +85,6 @@ class Product extends Controller
         $product = new ModelProduct();
         $product->ProductName = $request->ProductName;
         $product->ProvinceId = $request->ProvinceId;
-        $product->CustomerId = $request->CustomerId;
         $product->ProductTypeId = $request->ProductTypeId;
         $product->ProductPrice = $request->ProductPrice;
         $product->Description = $request->Description;
@@ -107,6 +107,58 @@ class Product extends Controller
     public function delete($id){
         $product = ModelProduct::find($id);
         $product->delete();
+        return redirect('/product/view');
+    }
+
+    public function edit($id){
+        $product = ModelProduct::find($id);
+        $productTypes = ModelProductType::all();
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        $provinces = ModelProvince::all();
+        return view('productEdit', ['product'=>$product, 'carts'=>$carts, 'productTypes'=>$productTypes, 'provinces'=>$provinces]);
+    }
+
+    public function editProductPost($id, Request $request){
+        $this->validate($request, [
+            'ProductName' => 'required',
+            'ProvinceId' => 'required',
+            'ProductTypeId' => 'required',
+            'ProductPrice' => 'required',
+            'Description' => 'required',
+            'ProductStock' => 'required',
+        ]);
+        $product = ModelProduct::find($id);
+        $product->ProductName = $request->ProductName;
+        $product->ProvinceId = $request->ProvinceId;
+        $product->ProductTypeId = $request->ProductTypeId;
+        $product->ProductPrice = $request->ProductPrice;
+        $product->Description = $request->Description;
+        $product->ProductStock = $request->ProductStock;
+        $product->CustomerId = Session::get('id');
+        $product->save();
+
+
+        return redirect('/product/view');
+    }
+    public function changePictureForm($id){
+        $product = ModelProduct::find($id);
+        $productTypes = ModelProductType::all();
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        return view('changePictureForm', ['product'=>$product, 'carts'=>$carts, 'productTypes'=>$productTypes]);
+    }
+    public function changePic($id, Request $request){
+        $this->validate($request, [
+            'ProductImage' => 'required'
+        ]);
+        
+        $prodLagi = ModelProduct::find($id);
+        $gambar = $request->file('ProductImage');
+        File::delete(public_path('/assets/images/product/').$prodLagi->ProductImage);
+        //simpan gambar
+        $prodLagi->ProductImage = $id.'.'.$gambar->getClientOriginalExtension();
+        $prodLagi->save();
+        $tujuan_upload = public_path('/assets/images/product/');
+        $gambar->move($tujuan_upload, $id.'.'.$gambar->getClientOriginalExtension());
         return redirect('/product/view');
     }
 }

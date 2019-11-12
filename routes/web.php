@@ -40,3 +40,7 @@ Route::get('/product/edit/{id}', 'Product@edit');
 Route::get('/product/add', 'Product@add');
 Route::get('/product/delete/{id}', 'Product@delete');
 Route::post('/product/addProductPost', 'Product@addProductPost');
+Route::get('/product/edit/{id}', 'Product@edit');
+Route::post('/product/editProductPost/{id}', 'Product@editProductPost');
+Route::get('/product/changePictureForm/{id}', 'Product@changePictureForm');
+Route::post('/product/changePic/{id}', 'Product@changePic');

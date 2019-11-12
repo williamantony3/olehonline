@@ -11,6 +11,7 @@
                   <th>Gambar</th>
                   <th>Asal</th>
                   <th>Jenis</th>
+                  <th>Stok</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -24,7 +25,8 @@
                   <td><a href="/assets/images/product/{{$product->ProductImage}}"><img src="/assets/images/product/{{$product->ProductImage}}" alt="" style="width:100px; height:100px;"></a></td>
                   <td>{{$product->province->Name}}</td>
                   <td>{{$product->productType->ProductTypeName}}</td>
-                  <td><a href="/product/edit/{{$product->ProductId}}">Ubah</a> | <a href="/product/delete/{{$product->ProductId}}">Hapus</a></td>
+                  <td>{{$product->ProductStock}}</td>
+                  <td><a href="/product/edit/{{$product->ProductId}}">Ubah</a> | <a href="/product/delete/{{$product->ProductId}}">Hapus</a> | <a href="/product/changePictureForm/{{$product->ProductId}}">Ganti Gambar</a></td>
                   
                 </tr>
                 @endforeach
