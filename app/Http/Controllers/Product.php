@@ -69,12 +69,44 @@ class Product extends Controller
         $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
         $provinces = ModelProvince::all();
         return view('productAdd', ['productTypes'=>$productTypes, 'carts'=>$carts, 'provinces'=>$provinces]);
+    }
 
+    public function addProductPost(Request $request){
+        $this->validate($request, [
+            'ProductName' => 'required',
+            'ProvinceId' => 'required',
+            'ProductTypeId' => 'required',
+            'ProductPrice' => 'required',
+            'Description' => 'required',
+            'ProductStock' => 'required',
+            'ProductImage' => 'required'
+        ]);
+        $product = new ModelProduct();
+        $product->ProductName = $request->ProductName;
+        $product->ProvinceId = $request->ProvinceId;
+        $product->CustomerId = $request->CustomerId;
+        $product->ProductTypeId = $request->ProductTypeId;
+        $product->ProductPrice = $request->ProductPrice;
+        $product->Description = $request->Description;
+        $product->ProductStock = $request->ProvinceId;
+        $product->CustomerId = Session::get('id');
+        $gambar = $request->file('ProductImage');
+        $product->save();
+        $id = $product->ProductId;
+
+        //simpan gambar
+        $prodLagi = ModelProduct::find($id);
+        $prodLagi->ProductImage = $id.'.'.$gambar->getClientOriginalExtension();
+        $prodLagi->save();
+        $tujuan_upload = public_path('/assets/images/product/');
+        $gambar->move($tujuan_upload, $id.'.'.$gambar->getClientOriginalExtension());
+
+        return redirect('/product/view');
     }
 
     public function delete($id){
         $product = ModelProduct::find($id);
         $product->delete();
-        $product->save();
+        return redirect('/product/view');
     }
 }

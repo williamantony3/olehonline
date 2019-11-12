@@ -39,3 +39,4 @@ Route::get('/product/view/', 'Product@view');
 Route::get('/product/edit/{id}', 'Product@edit');
 Route::get('/product/add', 'Product@add');
 Route::get('/product/delete/{id}', 'Product@delete');
+Route::post('/product/addProductPost', 'Product@addProductPost');
