@@ -33,3 +33,5 @@ Route::get('/product/type/{id}', 'Product@viewByType');
 Route::get('/product/from/{id}', 'Product@viewByProvince');
 Route::get('/explore', 'Province@view');
 Route::get('/province/detail/{id}', 'Province@detail');
+Route::get('/contact', 'Index@contact');
+Route::get('/product/search/', 'Product@search');

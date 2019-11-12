@@ -95,8 +95,8 @@
                 </ul>
           </div>
           <div class="navigation__column right">
-            <form class="ps-search--header" action="do_action" method="post">
-              <input class="form-control" type="text" placeholder="Cari oleh-oleh...">
+            <form class="ps-search--header" action="/product/search" method="get">
+              <input class="form-control" type="text" placeholder="Cari oleh-oleh..." name="keyword">
               <button><i class="ps-icon-search"></i></button>
             </form>
             <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>
@@ -167,8 +167,8 @@
                       </header>
                       <footer>
                         <p><strong>Jl. Sungai Batanghari No. 78, Kab. Bogor, Indonesia</strong></p>
-                        <p>Email: <a href='mailto:support@olehonline.com'>support@olehonline.com</a></p>
-                        <p>Phone: 0251-804377</p>
+                        <p>Email: <a href='mailto:support@olehonline.com'>admin@olehonline.com</a></p>
+                        <p>Telepon: 0251-804377</p>
                       </footer>
                     </aside>
                   </div>

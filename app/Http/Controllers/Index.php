@@ -17,4 +17,10 @@ class Index extends Controller
         $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
         return view('index', ['productTypes'=>$productTypes, 'foods'=>$foods, 'souvenirs'=>$souvenirs, 'carts'=>$carts]);
     }
+
+    public function contact(){
+        $productTypes = ModelProductType::all();
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        return view('contact', ['productTypes'=>$productTypes, 'carts'=>$carts]);
+    }
 }
