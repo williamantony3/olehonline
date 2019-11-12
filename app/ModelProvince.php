@@ -9,4 +9,5 @@ class ModelProvince extends Model
     
     protected $table = 'provinces';
     public $primaryKey = 'ProvinceId';
+
 }

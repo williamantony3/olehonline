@@ -14,7 +14,7 @@ class Product extends Controller
         $product = ModelProduct::with(['productType', 'province'])->find($id);
         $productTypes = ModelProductType::all();
         $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
-        $related = ModelProduct::orderByRaw('RAND()')->take(3)->get();
+        $related = ModelProduct::orderByRaw('RAND()')->take(4)->get();
         return view('productDetail', ['product'=>$product, 'productTypes'=>$productTypes, 'carts'=>$carts, 'related'=>$related]);
     }
 
