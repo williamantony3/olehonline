@@ -56,7 +56,7 @@
                   <div class="header__actions"><a href="{{url('logout')}}">Keluar</a></div>
                   <div class="header__actions"><a href="{{url('editProfile')}}">Ubah Profil</a></div>
                   <div class="header__actions"><a href="{{url('transactions/view')}}">Transaksi</a></div>
-                  <div class="header__actions"><a href="{{url('products/view')}}">Kelola Produk</a></div>
+                  <div class="header__actions"><a href="{{url('product/view')}}">Kelola Produk</a></div>
 
 
                 @endif

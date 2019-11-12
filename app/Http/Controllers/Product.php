@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ModelProduct;
 use App\ModelProductType;
 use App\ModelCart;
+use App\ModelProvince;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -54,5 +55,26 @@ class Product extends Controller
         //     }
         // })->get();
         return view('productSearch', ['products'=>$products, 'productTypes'=>$productTypes, 'carts'=>$carts]);
+    }
+
+    public function view(){
+        $productTypes = ModelProductType::all();
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        $products = ModelProduct::paginate(5);
+        return view('productView', ['products'=>$products, 'productTypes'=>$productTypes, 'carts'=>$carts]);
+    }
+
+    public function add(){
+        $productTypes = ModelProductType::all();
+        $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
+        $provinces = ModelProvince::all();
+        return view('productAdd', ['productTypes'=>$productTypes, 'carts'=>$carts, 'provinces'=>$provinces]);
+
+    }
+
+    public function delete($id){
+        $product = ModelProduct::find($id);
+        $product->delete();
+        $product->save();
     }
 }
