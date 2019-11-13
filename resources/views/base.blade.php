@@ -56,8 +56,9 @@
                   <div class="header__actions"><a href="{{url('logout')}}">Keluar</a></div>
                   <div class="header__actions"><a href="{{url('editProfile')}}">Ubah Profil</a></div>
                   <div class="header__actions"><a href="{{url('transactions/view')}}">Transaksi</a></div>
+                  @if(Session::get('status') == 1)
                   <div class="header__actions"><a href="{{url('product/view')}}">Kelola Produk</a></div>
-
+                  @endif
 
                 @endif
                     <!-- <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">USD<i class="fa fa-angle-down"></i></a>
