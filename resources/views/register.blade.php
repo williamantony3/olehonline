@@ -15,6 +15,15 @@
                         <div>{{Session::get('alert-success')}}, silahkan <a href="#" data-toggle="modal" data-target="#myModal" style="text-decoration:underline;">masuk</a></div>
                       </div>
                       @endif
+                      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                               <div class="form-group">
                                 <label>Nama <sub>*</sub></label>

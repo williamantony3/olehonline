@@ -32,7 +32,7 @@ Route::get('/explore', 'Province@view');
 Route::get('/province/detail/{id}', 'Province@detail');
 Route::get('/contact', 'Index@contact');
 Route::get('/product/search/', 'Product@search');
-if(Session::get('status')==1){
+// if(Session::get('status')==1){
 Route::get('/product/view/', 'Product@view');
 Route::get('/product/edit/{id}', 'Product@edit');
 Route::get('/product/add', 'Product@add');
@@ -45,4 +45,4 @@ Route::post('/product/changePic/{id}', 'Product@changePic');
 Route::get('/transactions/confirm/{id}', 'TransactionHeader@confirm');
 Route::get('/transactions/accept/{id}', 'TransactionHeader@accept');
 Route::get('/transactions/deny/{id}', 'TransactionHeader@deny');
-}
+// }

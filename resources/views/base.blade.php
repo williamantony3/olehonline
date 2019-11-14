@@ -97,7 +97,7 @@
           </div>
           <div class="navigation__column right">
             <form class="ps-search--header" action="/product/search" method="get">
-              <input class="form-control" type="text" placeholder="Cari oleh-oleh..." name="keyword">
+              <input class="form-control" type="text" placeholder="Cari oleh-oleh..." name="keyword" required="required">
               <button><i class="ps-icon-search"></i></button>
             </form>
             <div class="ps-cart"><a class="ps-cart__toggle" href="#"><i class="ps-icon-shopping-cart"></i></a>

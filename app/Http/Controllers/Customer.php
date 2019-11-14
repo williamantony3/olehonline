@@ -41,8 +41,8 @@ class Customer extends Controller
 
         $this->validate($request, [
             'nama' => 'required',
-            'email' => 'required',
-            'username' => 'required',
+            'email' => 'required|unique:customers',
+            'username' => 'required|unique:customers',
             'password' => 'required',
             'alamat' => 'required',
         ]);
