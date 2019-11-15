@@ -21,7 +21,7 @@
                   <form action="/cart/add/{{$product->ProductId}}" method="post">
                   {{csrf_field()}}
                   <div class="form-group">
-                    <input class="form-control" type="number" value="1" name="kuantitas"> tersisa {{$product->ProductStock}} buah
+                    <input class="form-control" type="number" value="1" name="kuantitas" max="{{$product->ProductStock}}" min="1"> tersisa {{$product->ProductStock}} buah
                   </div>
                 </div>
                 @if(Session::get('login'))

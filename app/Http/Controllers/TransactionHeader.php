@@ -51,9 +51,9 @@ class TransactionHeader extends Controller
         $productTypes = ModelProductType::all();
         $carts = ModelCart::with("product")->where('CustomerId', Session::get('id'))->get();
         if(Session::get('status') == 1){
-            $transactions = ModelTransactionHeader::with('transactionDetails.product', 'customer')->get();
+            $transactions = ModelTransactionHeader::with('transactionDetails.product', 'customer')->orderBy('TransactionId', 'DESC')->get();
         }else{
-            $transactions = ModelTransactionHeader::with('transactionDetails.product')->where('CustomerId', Session::get('id'))->get();
+            $transactions = ModelTransactionHeader::with('transactionDetails.product')->where('CustomerId', Session::get('id'))->orderBy('TransactionId', 'DESC')->get();
         }
         return view('transactionsView', ['transactions'=>$transactions, 'productTypes'=>$productTypes, 'carts'=>$carts]);
     }

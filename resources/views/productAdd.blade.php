@@ -50,13 +50,13 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                               <div class="form-group">
                                 <label>Stok <sub>*</sub></label>
-                                <input class="form-control" type="number" placeholder="" name="ProductStock" required="required">
+                                <input class="form-control" type="number" min="1" placeholder="" name="ProductStock" required="required">
                               </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                               <div class="form-group">
                                 <label>Harga per buah<sub>*</sub></label>
-                                <input class="form-control" type="number" placeholder="" name="ProductPrice" required="required">
+                                <input class="form-control" type="number" placeholder="" min="1" name="ProductPrice" required="required">
                               </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">

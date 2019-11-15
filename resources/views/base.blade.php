@@ -88,7 +88,7 @@
           <div class="navigation__column center">
                 <ul class="main-menu menu">
                 @foreach($productTypes as $productType)
-                  <li class="menu-item menu-item-has-children dropdown"><a href="/product/type/{{$productType->ProductTypeId}}">{{$productType->ProductTypeName}}</a></li>
+                  <li class="menu-item"><a href="/product/type/{{$productType->ProductTypeId}}">{{$productType->ProductTypeName}}</a></li>
                 @endforeach
                   <li class="menu-item"><a href="{{url('explore')}}">Jelajah Nusantara</a></li>
                   <li class="menu-item"><a href="{{url('contact')}}">Hubungi Kami</a></li>
